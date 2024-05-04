@@ -1,0 +1,471 @@
+/* App.css */
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+/* *************** First Section ************ */
+
+/* ***** Animation ***** */
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+nav {
+  position: fixed;
+  width: -webkit-fill-available;
+  top: 0;
+  left: 0;
+  padding: 0.5em 8%;
+  background-color: #13091a;
+  color: #faf9f6;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 1000;
+}
+
+.logo {
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3.5rem !important;
+  margin-right: auto;
+}
+
+ul {
+  list-style: none;
+}
+
+ul li {
+  display: inline-block;
+  font-size: 1.5em;
+  margin: 0 0.5em;
+}
+
+.navContent {
+  display: flex;
+}
+
+.navOptions {
+  margin-right: 1.5em;
+}
+
+.navLinks {
+  text-decoration: none;
+  color: #faf9f6;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  font-style: normal;
+  position: relative;
+}
+
+.navLinks::after {
+  content: "";
+  position: absolute;
+  background: linear-gradient(
+    to right,
+    hsla(260, 91%, 64%, 1) 0%,
+    hsla(300, 100%, 50%, 1) 50%,
+    hsla(40, 100%, 97%, 1) 90%
+  );
+  width: 0;
+  height: 3px;
+  bottom: -10px;
+  left: unset;
+  right: 0;
+  transition: width 0.3s linear;
+}
+
+.navLinks:hover::after {
+  width: 100%;
+  left: 0;
+  right: unset;
+  border-radius: 2px;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#menu {
+  display: none;
+}
+
+.menu-btn {
+  display: none;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  z-index: 1000;
+  display: none;
+  /* border: 3px solid #fff; */
+}
+.menu-btn__burger {
+  width: 40px;
+  height: 3.5px;
+  background: #fff;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 3.5px;
+  background: #fff;
+  border-radius: 5px;
+  transition: all 0.5s ease-in-out;
+}
+.menu-btn__burger::before {
+  transform: translateY(-13px);
+}
+.menu-btn__burger::after {
+  transform: translateY(13px);
+}
+
+/* ANIMATION */
+.menu-btn.open .menu-btn__burger {
+  transform: translateX(-35px);
+  background: transparent;
+  box-shadow: none;
+}
+.menu-btn.open .menu-btn__burger::before {
+  transform: rotate(45deg) translate(35px, -35px);
+}
+.menu-btn.open .menu-btn__burger::after {
+  transform: rotate(-45deg) translate(35px, 35px);
+}
+
+.sidebar {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 400px;
+  height: 100%;
+  background-color: #2a1454;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(100%);
+  transition: all 0.5s ease-in;
+  /* animation: slideInFromRight 0.5s forwards; */
+}
+
+.open {
+  transform: translateX(0);
+}
+
+.sidebar ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.sidebar li {
+  margin: 0.5em 0;
+}
+
+.sidebar button {
+  margin: 1em 0;
+  cursor: pointer;
+}
+
+.connect {
+  margin-left: 1em;
+  font-size: 1.2em;
+  padding: 0.4em 1em;
+  border: 1.5px solid #faf9f6;
+  background-color: transparent;
+  color: #faf9f6;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease-in;
+}
+
+.connectAnimation:hover {
+  background-color: #8850f7;
+  border-color: #8850f7;
+}
+
+.sidebarConnectAnimation:hover {
+  background-color: #ffffff;
+  color: #2a1454;
+  font: 700;
+}
+
+#home {
+  background-color: #13091a;
+  padding: 11% 8% 5%;
+  color: #faf9f6;
+  display: flex;
+  gap: 5em;
+}
+
+.intro,
+.photoSection {
+  width: 50%;
+  /* background-color: red; */
+}
+
+.name {
+  font-size: 2em;
+  font-weight: 600;
+}
+
+.role {
+  display: inline-block;
+  font-size: 3em;
+  margin: 0.25em 0;
+  color: transparent;
+  background: #8750f7;
+
+  background: linear-gradient(
+    0deg,
+    hsla(260, 91%, 64%, 1) 0%,
+    hsla(300, 100%, 50%, 1) 50%,
+    hsla(40, 100%, 97%, 1) 90%
+  );
+
+  background: -moz-linear-gradient(
+    0deg,
+    hsla(260, 91%, 64%, 1) 0%,
+    hsla(300, 100%, 50%, 1) 50%,
+    hsla(40, 100%, 97%, 1) 90%
+  );
+
+  background: -webkit-linear-gradient(
+    0deg,
+    hsla(260, 91%, 64%, 1) 0%,
+    hsla(300, 100%, 50%, 1) 50%,
+    hsla(40, 100%, 97%, 1) 90%
+  );
+
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8750F7", endColorstr="#FF00FF", GradientType=1 );
+  background-clip: text;
+}
+
+.para {
+  display: block;
+  width: 70%;
+  font-size: 1.3em;
+  line-height: 1.5;
+}
+
+.cvDownloadAndSocial {
+  display: flex;
+  margin: 2.5em 0;
+}
+
+.cv {
+  width: max-content;
+  display: flex;
+  justify-content: center;
+  transition: 0.5s;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid #8750f7;
+  font-size: 1.2em;
+  padding: 0.7em 0.9em;
+  color: #8750f7;
+  border-radius: 2em;
+  margin-right: 2em;
+  cursor: pointer;
+}
+
+.downloadIcon {
+  margin-left: 0.2em;
+  font-size: 1.3em;
+}
+
+.socialLinks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.outline {
+  height: 75%;
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  border: 1.6px solid #8750f7;
+  transition: all 0.3s ease-in;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+
+.outline a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #8750f7;
+  font-size: 1.8em;
+  transition: all 0.3s ease;
+}
+
+.outline a svg {
+  transition: all 0.3s ease-in;
+}
+
+.cv:hover {
+  color: white;
+  background-color: #8750f7;
+}
+
+.outline:hover {
+  background-color: #8750f7;
+}
+
+.outline:hover a svg {
+  fill: #ffffff;
+}
+
+.photoSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* height: fit-content; */
+}
+
+.myPhoto {
+  min-width: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.myPhoto img {
+  width: 100%;
+  border: 2px solid #8850f78b;
+  border-radius: 2.5em;
+  transform: rotate(2deg);
+  transition: all 0.2s linear;
+}
+
+.myPhoto img:hover {
+  transform: rotate(0deg);
+  border: 2px solid #8750f7;
+}
+
+#skills{
+  background-color: #050709;
+  padding: 5% 8%;
+  color: #fff;
+  text-align: center;
+}
+
+.skillsTitle h1{
+  display: inline;
+  font-size: 3em;
+  color: transparent;
+  background: #8750f7;
+  background: linear-gradient(
+    0deg,
+    hsla(260, 91%, 64%, 1) 0%,
+    hsla(300, 100%, 50%, 1) 50%,
+    hsla(40, 100%, 97%, 1) 90%
+  );
+  background: -moz-linear-gradient(
+    0deg,
+    hsla(260, 91%, 64%, 1) 0%,
+    hsla(300, 100%, 50%, 1) 50%,
+    hsla(40, 100%, 97%, 1) 90%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    hsla(260, 91%, 64%, 1) 0%,
+    hsla(300, 100%, 50%, 1) 50%,
+    hsla(40, 100%, 97%, 1) 90%
+  );
+  filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#8750F7", endColorstr="#FF00FF", GradientType=1 );
+  background-clip: text;
+}
+
+
+/* ******** Animation ******** */
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ***** Media Query ***** */
+
+@media screen and (max-width: 850px) {
+  #home {
+    padding-top: 7em;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .intro,
+  .photoSection {
+    width: 100%;
+  }
+  .para {
+    width: 100%;
+  }
+  .myPhoto {
+    min-width: auto;
+  }
+  .myPhoto img {
+    transform: none;
+    transition: none;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .navContent {
+    display: none;
+  }
+  .menu-btn {
+    display: flex;
+    z-index: 999;
+  }
+  .sidebar {
+    display: flex;
+  }
+}
+@media screen and (max-width: 500px) {
+  .sidebar {
+    width: 100vw;
+  }
+}
+
+@media screen and (max-width: 453px) {
+  .cvDownloadAndSocial {
+    gap: 1em;
+    display: flex;
+    flex-direction: column;
+  }
+  .cv {
+    margin: 0;
+  }
+  .socialLinks {
+    justify-content: flex-start;
+    margin-left: 1em;
+  }
+  .outline {
+    padding: 0.5em;
+  }
+}

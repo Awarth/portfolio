@@ -784,8 +784,11 @@ textarea:focus {
   border-radius: 50%;
   font-size: 1.8em;
 }
-.myPhoneNo h1,
-.myEmail h1 {
+.myPhoneNo a,
+.myEmail a {
+  text-decoration: none;
+  color: #fff;
+  cursor: pointer;
   font-size: 1.6em;
   font-weight: 500;
 }
@@ -811,8 +814,8 @@ textarea:focus {
   .encircle {
     font-size: 1.35em;
   }
-  .myPhoneNo h1,
-  .myEmail h1 {
+  .myPhoneNo a,
+  .myEmail a {
     font-size: 1.5em;
   }
 }
@@ -945,8 +948,8 @@ textarea:focus {
   .myContactDetails h1 {
     font-size: 1.7em;
   }
-  .myPhoneNo h1,
-  .myEmail h1 {
+  .myPhoneNo a,
+  .myEmail a {
     font-size: 1.3em;
   }
   form {
@@ -964,8 +967,8 @@ textarea:focus {
     width: 7.2em;
     height: 7.2em;
   }
-  .myPhoneNo h1,
-  .myEmail h1 {
+  .myPhoneNo a,
+  .myEmail a {
     font-size: 1em;
   }
   .fullName {

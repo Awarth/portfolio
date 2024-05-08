@@ -366,13 +366,13 @@ function App() {
                   <div className="encircle">
                     <FaPhoneAlt />
                   </div>
-                  <h1>+91 95553-50284</h1>
+                  <a href="tel:+919555350284">+91 95553-50284</a>
                 </span>
                 <span className="myEmail">
                   <div className="encircle">
                     <MdOutlineMailOutline />
                   </div>
-                  <h1>at.wrath9616@gmail.com</h1>
+                  <a href="mailto:at.wrath9616@gmail.com">at.wrath9616@gmail.com</a>
                 </span>
               </div>
             </div>

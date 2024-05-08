@@ -1,19 +1,75 @@
 import { useEffect, useState } from "react";
-import Preloader from "./Preloader/Preloader";
+import Preloader from "./components/Preloader/Preloader";
 import "../src/App.css";
-import { NavLink } from "react-router-dom";
-import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { MdOutlineFileDownload } from "react-icons/md";
+import {
+  FaGithub,
+  FaInstagram,
+  FaLinkedin,
+  FaArrowCircleRight,
+  FaPhoneAlt,
+} from "react-icons/fa";
+import { MdOutlineFileDownload, MdOutlineMailOutline } from "react-icons/md";
 import myImg from "./assets/images/file.svg";
+import HTML from "./assets/images/html.svg";
+import CSS from "./assets/images/css.svg";
+import JS from "./assets/images/js.svg";
+import REACT from "./assets/images/react.svg";
+import GITHUB from "./assets/images/github.svg";
+import Gym from "./assets/images/gym.png";
+import Pizza from "./assets/images/pizza.png";
 
 function App() {
   const [isLoading, setLoading] = useState(true);
   const [isOpen, setIsOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [active, setActive] = useState("home");
 
   const handleMenuClick = () => {
     setMenuOpen(!menuOpen);
     setIsOpen(!isOpen);
+  };
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phoneNo: "",
+    message: "",
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form data:", formData);
+    setFormData({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phoneNo: "",
+      message: "",
+    });
+  };
+
+  const scrollToSection = (sectionId) => {
+    setActive(sectionId);
+    const sectionElement = document.getElementById(sectionId);
+    if (sectionElement) {
+      sectionElement.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const handleSidebarOptionClick = (sectionId) => {
+    setIsOpen(false);
+    setMenuOpen(false);
+    setActive(sectionId);
+    const sectionElement = document.getElementById(sectionId);
+    if (sectionElement) {
+      sectionElement.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   useEffect(() => {
@@ -36,39 +92,39 @@ function App() {
             <div className="navContent">
               <div className="navOptions">
                 <ul>
-                  <li>
-                    <NavLink
-                      to="/home"
-                      className="navLinks"
-                      activeclassname="active"
-                    >
-                      Home
-                    </NavLink>
+                  <li
+                    onClick={() => scrollToSection("home")}
+                    className={`navLinks ${active === "home" ? "active" : ""}`}
+                  >
+                    Home
                   </li>
-                  <li>
-                    <NavLink
-                      to="/skills"
-                      className="navLinks"
-                      activeclassname="active"
-                    >
-                      Skills
-                    </NavLink>
+                  <li
+                    onClick={() => scrollToSection("projects")}
+                    className={`navLinks ${
+                      active === "projects" ? "active" : ""
+                    }`}
+                  >
+                    Projects
                   </li>
-                  <li>
-                    <NavLink
-                      to="/projects"
-                      className="navLinks"
-                      activeclassname="active"
-                    >
-                      Projects
-                    </NavLink>
+                  <li
+                    onClick={() => scrollToSection("skills")}
+                    className={`navLinks ${
+                      active === "skills" ? "active" : ""
+                    }`}
+                  >
+                    Skills
                   </li>
                 </ul>
               </div>
               <div className="socials">
-                <button className="connect connectAnimation">
+                <p
+                  onClick={() => scrollToSection("communication")}
+                  className={`connect connectAnimation ${
+                    active === "communication" ? "btnActive" : ""
+                  }`}
+                >
                   Lets connect
-                </button>
+                </p>
               </div>
             </div>
             <div
@@ -79,39 +135,36 @@ function App() {
             </div>
             <div className={`sidebar ${isOpen ? "open" : ""}`}>
               <ul>
-                <li>
-                  <NavLink
-                    to="/home"
-                    className="navLinks"
-                    activeclassname="active"
-                  >
-                    {" "}
-                    Home
-                  </NavLink>
+                <li
+                  onClick={() => handleSidebarOptionClick("home")}
+                  className={`navLinks ${active === "home" ? "active" : ""}`}
+                >
+                  Home
                 </li>
-                <li>
-                  <NavLink
-                    to="/skills"
-                    className="navLinks"
-                    activeclassname="active"
-                  >
-                    Skills
-                  </NavLink>
+                <li
+                  onClick={() => handleSidebarOptionClick("projects")}
+                  className={`navLinks ${
+                    active === "projects" ? "active" : ""
+                  }`}
+                >
+                  Projects
                 </li>
-                <li>
-                  <NavLink
-                    to="/projects"
-                    className="navLinks"
-                    activeclassname="active"
-                  >
-                    Projects
-                  </NavLink>
+                <li
+                  onClick={() => handleSidebarOptionClick("skills")}
+                  className={`navLinks ${active === "skills" ? "active" : ""}`}
+                >
+                  Skills
                 </li>
               </ul>
               <div className="socials">
-                <button className="connect sidebarConnectAnimation">
+                <p
+                  onClick={() => handleSidebarOptionClick("communication")}
+                  className={`connect sidebarConnectAnimation ${
+                    active === "communication" ? "btnActive" : ""
+                  }`}
+                >
                   Lets connect
-                </button>
+                </p>
               </div>
             </div>
           </nav>
@@ -132,17 +185,23 @@ function App() {
                 </button>
                 <div className="socialLinks">
                   <div className="outline">
-                    <a href="https://github.com" target="_blank">
+                    <a href="https://github.com/Awarth" target="_blank">
                       <FaGithub />
                     </a>
                   </div>
                   <div className="outline">
-                    <a href="https://linkedin.com" target="_blank">
+                    <a
+                      href="https://www.linkedin.com/in/adarsh-tiwari-ab0470286?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                      target="_blank"
+                    >
                       <FaLinkedin />
                     </a>
                   </div>
                   <div className="outline">
-                    <a href="https://instagram.com" target="_blank">
+                    <a
+                      href="https://www.instagram.com/___w.r.a.t.h___?igsh=MTZucXdyZTljcmI5Yg=="
+                      target="_blank"
+                    >
                       <FaInstagram />
                     </a>
                   </div>
@@ -155,14 +214,169 @@ function App() {
               </div>
             </div>
           </section>
+          <section id="projects">
+            <div className="title">
+              <h1>My Projects</h1>
+            </div>
+            <div className="projectDescription">
+              We put your ideas and thus your wishes in the form of a unique web
+              project that inspires you and you customers.
+            </div>
+            <div className="projectCardCollection">
+              <div className="projectWidget">
+                <div className="projectCard">
+                  <img src={Gym} alt="gym" />
+                </div>
+                <div className="onHover">
+                  <div className="gap">
+                    <h1>Gym</h1>
+                    <p>Project was about precision and information</p>
+                  </div>
+                  <FaArrowCircleRight />
+                </div>
+              </div>
+              <div className="projectWidget">
+                <div className="projectCard">
+                  <img src={Pizza} alt="pizza" />
+                </div>
+                <div className="onHover">
+                  <div className="gap">
+                    <h1>Pizza</h1>
+                    <p>Project was about precision and information</p>
+                  </div>
+                  <FaArrowCircleRight />
+                </div>
+              </div>
+            </div>
+          </section>
           <section id="skills">
             <div className="skillsContainer">
               <div className="skillsTitle">
                 <h1>My Skills</h1>
               </div>
+              <span className="skillsDescription">
+                I put your ideas and thus your wishes into the form of a unique
+                web project that inspires you and your customers.
+              </span>
+              <div className="skillsCardCollection">
+                <div className="skillWidget">
+                  <div className="skillsCard">
+                    <img src={HTML} alt="html" />
+                    <p>95%</p>
+                  </div>
+                  <p>HTML</p>
+                </div>
+                <div className="skillWidget">
+                  <div className="skillsCard">
+                    <img src={CSS} alt="css" />
+                    <p>90%</p>
+                  </div>
+                  <p>CSS</p>
+                </div>
+                <div className="skillWidget">
+                  <div className="skillsCard">
+                    <img src={JS} alt="js" />
+                    <p>85%</p>
+                  </div>
+                  <p>JS</p>
+                </div>
+                <div className="skillWidget">
+                  <div className="skillsCard">
+                    <img src={REACT} alt="react" />
+                    <p>75%</p>
+                  </div>
+                  <p>REACT</p>
+                </div>
+                <div className="skillWidget">
+                  <div className="skillsCard">
+                    <img src={GITHUB} alt="github" />
+                    <p>80%</p>
+                  </div>
+                  <p>GITHUB</p>
+                </div>
+              </div>
             </div>
           </section>
-          <section id="projects"></section>
+          <section id="communication">
+            <div className="content">
+              <form>
+                <div className="contactTitle">
+                  <h2>Drop your contact</h2>
+                </div>
+                <span className="fullName">
+                  <div className="nameField">
+                    <input
+                      type="text"
+                      id="firstName"
+                      className="inputBox"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      placeholder="First name"
+                    />
+                  </div>
+                  <div className="nameField">
+                    <input
+                      type="text"
+                      id="lastName"
+                      className="inputBox"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      placeholder="Second name"
+                    />
+                  </div>
+                </span>
+                <div className="emailField">
+                  <input
+                    type="email"
+                    id="emailInputField"
+                    className="inputBox"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    placeholder="Email"
+                  />
+                </div>
+                <div className="phField">
+                  <input
+                    type="tel"
+                    id="phoneNo"
+                    value={formData.phoneNo}
+                    onChange={handleInputChange}
+                    placeholder="Phone No. with country code"
+                    name="phoneNo"
+                  />
+                </div>
+                <textarea
+                  id="message"
+                  placeholder="Message"
+                  className="inputField"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                />
+                <button type="submit" id="submitBtn" onClick={handleSubmit}>
+                  Send Message
+                </button>
+              </form>
+              <div className="myContactDetails">
+                <h1>Adarsh Tiwari</h1>
+                <span className="myPhoneNo">
+                  <div className="encircle">
+                    <FaPhoneAlt />
+                  </div>
+                  <h1>+91 95553-50284</h1>
+                </span>
+                <span className="myEmail">
+                  <div className="encircle">
+                    <MdOutlineMailOutline />
+                  </div>
+                  <h1>at.wrath9616@gmail.com</h1>
+                </span>
+              </div>
+            </div>
+          </section>
         </>
       )}
     </>

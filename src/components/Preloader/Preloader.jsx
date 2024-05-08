@@ -6,7 +6,6 @@ function Preloader() {
   const [fadeOut, setFadeOut] = useState(false);
 
   useEffect(() => {
-    // Delay the fade out effect for 2.5 seconds
     const timeout = setTimeout(() => {
       setFadeOut(true);
     }, 2500);

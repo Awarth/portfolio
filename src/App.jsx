@@ -372,7 +372,9 @@ function App() {
                   <div className="encircle">
                     <MdOutlineMailOutline />
                   </div>
-                  <a href="mailto:at.wrath9616@gmail.com">at.wrath9616@gmail.com</a>
+                  <a href="mailto:at.wrath9616@gmail.com">
+                    at.wrath9616@gmail.com
+                  </a>
                 </span>
               </div>
             </div>

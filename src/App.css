@@ -297,6 +297,7 @@ ul li {
 }
 
 .cv {
+  text-decoration: none;
   width: max-content;
   display: flex;
   justify-content: center;
@@ -469,6 +470,9 @@ ul li {
 }
 
 .onHover {
+  text-decoration: none;
+  cursor: pointer;
+  color: #ffffff;
   visibility: hidden;
   display: none;
   position: absolute;
@@ -523,8 +527,9 @@ ul li {
   font-size: 2em;
 }
 
-.projectCard img {
+.projectCard img ,.projectCard iframe{
   width: 90%;
+  aspect-ratio: 1;
   filter: grayscale(80%);
 }
 

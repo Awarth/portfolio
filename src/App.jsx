@@ -16,7 +16,8 @@ import JS from "./assets/images/js.svg";
 import REACT from "./assets/images/react.svg";
 import GITHUB from "./assets/images/github.svg";
 import Gym from "./assets/images/gym.png";
-import Pizza from "./assets/images/pizza.png";
+// import Pizza from "./assets/images/pizza.png";
+import  resume from "./assets/resume/resume.pdf";
 
 function App() {
   const [isLoading, setLoading] = useState(true);
@@ -180,9 +181,9 @@ function App() {
                 satisfaction.
               </span>
               <div className="cvDownloadAndSocial">
-                <button className="cv">
+                <a download={true} href={resume} className="cv">
                   Download CV <MdOutlineFileDownload className="downloadIcon" />
-                </button>
+                </a>
                 <div className="socialLinks">
                   <div className="outline">
                     <a href="https://github.com/Awarth" target="_blank">
@@ -237,15 +238,15 @@ function App() {
               </div>
               <div className="projectWidget">
                 <div className="projectCard">
-                  <img src={Pizza} alt="pizza" />
+                  <iframe src="https://pizza-website-sooty.vercel.app/"></iframe>
                 </div>
-                <div className="onHover">
+                <a href="https://pizza-website-sooty.vercel.app/" className="onHover">
                   <div className="gap">
                     <h1>Pizza</h1>
                     <p>Project was about precision and information</p>
                   </div>
                   <FaArrowCircleRight />
-                </div>
+                </a>
               </div>
             </div>
           </section>

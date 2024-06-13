@@ -17,7 +17,8 @@ import REACT from "./assets/images/react.svg";
 import GITHUB from "./assets/images/github.svg";
 import Gym from "./assets/images/gym.png";
 // import Pizza from "./assets/images/pizza.png";
-import  resume from "./assets/resume/resume.pdf";
+import resume from "./assets/resume/resume.pdf";
+import axios from "axios";
 
 function App() {
   const [isLoading, setLoading] = useState(true);
@@ -43,9 +44,45 @@ function App() {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log("Form data:", formData);
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicId = import.meta.env.VITE_EMAILJS_PUBLIC_ID;
+
+    const { firstName, lastName, email, phoneNo, message } = formData;
+
+    const fromName = `${firstName} ${lastName}`;
+
+    const formatMsg = `
+      Email : ${email}
+      Phone No .: ${phoneNo}
+      Message : ${message}
+    `;
+
+    const data = {
+      service_id: serviceId,
+      template_id: templateId,
+      user_id: publicId,
+      template_params: {
+        from_name: fromName,
+        to_name: "Adarsh",
+        message: formatMsg,
+      },
+    };
+
+    try {
+      const res = await axios.post(
+        "https://api.emailjs.com/api/v1.0/email/send",
+        data
+      );
+      console.log(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+
     setFormData({
       firstName: "",
       lastName: "",
@@ -240,7 +277,10 @@ function App() {
                 <div className="projectCard">
                   <iframe src="https://pizza-website-sooty.vercel.app/"></iframe>
                 </div>
-                <a href="https://pizza-website-sooty.vercel.app/" className="onHover">
+                <a
+                  href="https://pizza-website-sooty.vercel.app/"
+                  className="onHover"
+                >
                   <div className="gap">
                     <h1>Pizza</h1>
                     <p>Project was about precision and information</p>

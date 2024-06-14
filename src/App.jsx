@@ -19,6 +19,8 @@ import Gym from "./assets/images/gym.png";
 // import Pizza from "./assets/images/pizza.png";
 import resume from "./assets/resume/resume.pdf";
 import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const [isLoading, setLoading] = useState(true);
@@ -54,6 +56,11 @@ function App() {
 
     const { firstName, lastName, email, phoneNo, message } = formData;
 
+    if (!firstName || !lastName || !email || !phoneNo || !message) {
+      toast.warning("Fill all the fields of contact form");
+      return;
+    }
+
     const fromName = `${firstName} ${lastName}`;
 
     const formatMsg = `
@@ -79,7 +86,9 @@ function App() {
         data
       );
       console.log(res.data);
+      toast.success("Email was sent successfully");
     } catch (error) {
+      toast.error("There was an error, Please try again.");
       console.log(error);
     }
 
@@ -341,6 +350,18 @@ function App() {
           <section id="communication">
             <div className="content">
               <form>
+                <ToastContainer
+                  position="top-right"
+                  autoClose={2000}
+                  hideProgressBar={false}
+                  newestOnTop={false}
+                  closeOnClick
+                  rtl={false}
+                  pauseOnFocusLoss={false}
+                  draggable={false}
+                  pauseOnHover
+                  theme="dark"
+                />
                 <div className="contactTitle">
                   <h2>Drop your contact</h2>
                 </div>

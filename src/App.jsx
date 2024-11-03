@@ -409,14 +409,14 @@ function App() {
                     <img src={Tailwind} alt="tailwind" />
                     <p>90%</p>
                   </div>
-                  <p>TAILWIND CSS</p>
+                  <p>TAILWIND</p>
                 </div>
                 <div className="skillWidget">
                   <div className="skillsCard">
                     <img src={Bootstrap} alt="bootstrap" />
                     <p>75%</p>
                   </div>
-                  <p>GITHUB</p>
+                  <p>Bootstrap</p>
                 </div>
               </div>
             </div>

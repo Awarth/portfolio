@@ -15,8 +15,11 @@ import CSS from "./assets/images/css.svg";
 import JS from "./assets/images/js.svg";
 import REACT from "./assets/images/react.svg";
 import GITHUB from "./assets/images/github.svg";
-import Gym from "./assets/images/gym.png";
-// import Pizza from "./assets/images/pizza.png";
+import MongoDb from "./assets/images/mongoDB.png";
+import Node from "./assets/images/node.png";
+import Express from "./assets/images/express.png";
+import Tailwind from "./assets/images/tailwind.png";
+import Bootstrap from "./assets/images/bootstrap.png";
 import resume from "./assets/resume/resume.pdf";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
@@ -238,7 +241,7 @@ function App() {
                   </div>
                   <div className="outline">
                     <a
-                      href="https://www.linkedin.com/in/adarsh-tiwari-ab0470286?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                      href="http://www.linkedin.com/in/at-wrath9616"
                       target="_blank"
                     >
                       <FaLinkedin />
@@ -246,7 +249,7 @@ function App() {
                   </div>
                   <div className="outline">
                     <a
-                      href="https://www.instagram.com/___w.r.a.t.h___?igsh=MTZucXdyZTljcmI5Yg=="
+                      href="https://www.instagram.com/___w.r.a.t.h___"
                       target="_blank"
                     >
                       <FaInstagram />
@@ -272,15 +275,51 @@ function App() {
             <div className="projectCardCollection">
               <div className="projectWidget">
                 <div className="projectCard">
-                  <img src={Gym} alt="gym" />
+                  <iframe src="https://youtube-frontend-eosin.vercel.app/"></iframe>
                 </div>
-                <div className="onHover">
+                <a
+                  href="https://youtube-frontend-eosin.vercel.app/"
+                  className="onHover"
+                >
                   <div className="gap">
-                    <h1>Gym</h1>
-                    <p>Project was about precision and information</p>
+                    <h1>Video Streaming App</h1>
+                    <p>
+                      A full stack Youtube like app supporting video uploading
+                      ,streaming
+                    </p>
                   </div>
                   <FaArrowCircleRight />
+                </a>
+              </div>
+              <div className="projectWidget">
+                <div className="projectCard">
+                  <iframe src="https://blog-website-gilt-beta.vercel.app/"></iframe>
                 </div>
+                <a
+                  href="https://blog-website-gilt-beta.vercel.app/"
+                  className="onHover"
+                >
+                  <div className="gap">
+                    <h1>Blog website</h1>
+                    <p>A full stack web app created using MERN stack</p>
+                  </div>
+                  <FaArrowCircleRight />
+                </a>
+              </div>
+              <div className="projectWidget">
+                <div className="projectCard">
+                  <iframe src="https://the-indian-times.vercel.app/"></iframe>
+                </div>
+                <a
+                  href="https://the-indian-times.vercel.app/"
+                  className="onHover"
+                >
+                  <div className="gap">
+                    <h1>News Article</h1>
+                    <p>A news article website delivering latest news</p>
+                  </div>
+                  <FaArrowCircleRight />
+                </a>
               </div>
               <div className="projectWidget">
                 <div className="projectCard">
@@ -341,6 +380,41 @@ function App() {
                   <div className="skillsCard">
                     <img src={GITHUB} alt="github" />
                     <p>80%</p>
+                  </div>
+                  <p>GITHUB</p>
+                </div>
+                <div className="skillWidget">
+                  <div className="skillsCard">
+                    <img src={Node} alt="node" />
+                    <p>70%</p>
+                  </div>
+                  <p>Node</p>
+                </div>
+                <div className="skillWidget">
+                  <div className="skillsCard">
+                    <img src={Express} alt="express" />
+                    <p>65%</p>
+                  </div>
+                  <p>EXPRESS</p>
+                </div>
+                <div className="skillWidget">
+                  <div className="skillsCard">
+                    <img src={MongoDb} alt="mongoDB" />
+                    <p>60%</p>
+                  </div>
+                  <p>MONGODB</p>
+                </div>
+                <div className="skillWidget">
+                  <div className="skillsCard">
+                    <img src={Tailwind} alt="tailwind" />
+                    <p>90%</p>
+                  </div>
+                  <p>TAILWIND CSS</p>
+                </div>
+                <div className="skillWidget">
+                  <div className="skillsCard">
+                    <img src={Bootstrap} alt="bootstrap" />
+                    <p>75%</p>
                   </div>
                   <p>GITHUB</p>
                 </div>
